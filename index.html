@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>CountDown</title>
+</head>
+<body>
+    <div class="container">
+            <img src="asset/1.jpg" alt="">
+        <div class="time">
+            <div id="hari"></div>
+            <div id="jam"></div>
+            <div id="menit"></div>
+            <div id="detik"></div>
+        </div>
+        <span id="typed"></span>
+    </div>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.8/typed.min.js"></script>
+    <script type="text/javascript">
+        var typed = new Typed("#typed", {
+            strings: ["Kejutan Untukmu !"],
+            typeSpeed: 80,
+            startDelay: 100,
+            loop: true,
+          });
+        const tujuan = new Date("Dec 28 2022 00:00:00").getTime();
+        const Hbd = setInterval(() => {
+          const now = new Date().getTime();
+          const distance = tujuan - now;
+          const hari = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const jam = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const menit = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const detik = Math.floor((distance % (1000 * 60)) / 1000);
+        
+          document.getElementById("hari").innerText = hari;
+          document.getElementById("jam").innerText = jam;
+          document.getElementById("menit").innerText = menit;
+          document.getElementById("detik").innerText = detik;
+        
+          if (distance < 0) {
+            clearInterval(Hbd);
+            window.location.href = "hbd/hbd.html";
+          }
+        }, 1000);
+
+    </script>
+
+
+</body>
+</html>

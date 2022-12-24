@@ -1,0 +1,87 @@
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="style1.css">
+    <title>Happy Birth Day</title>
+    
+  </head>
+  <body class="body">
+    <audio class="audio" src="https://dekatutorial.github.io/Selamat%20Ulang%20Tahun%20[Jamrud].mp3" autoplay type="audio" loop=""></audio>
+    <div class="open">
+      <div class="card">
+        <h2></h2>
+          <img onclick="mulai()" src="../asset/2.jpg" alt="" srcset="" width="150vw"  />
+        <h3>press this for the magic</h3>
+      </div>
+    </div>
+    <div class="atas" id="atas">
+      <img onclick="mulai()" src="../asset/3.jfif" alt="" /> 
+      <h2>It's time to celebrate !!!</h2>
+      <div id="particles"></div>
+    </div>
+
+    <p data-aos="zoom-in">On this day</p>
+    <p data-aos="zoom-in">28 December 2022</p>
+    <p data-aos="zoom-in">Has been a parasite of the earth for 20 years</p>
+    <p data-aos="zoom-in">Hopefully in the next year </p>
+    <p data-aos="zoom-in">Will Become a more useful people :) </p>
+    
+    <p data-aos="zoom-in">Touch the love for magic
+      <i onclick="tanya()" class="material-icons-sharp"> favorite </i></p>
+
+    <script>
+
+      var musik = "";
+
+    </script>
+    
+    <script> 
+      AOS.init({ once: true, }); 
+    </script>
+
+    <script> 
+      var audio = document.querySelector(".audio"); 
+      if(musik) {
+        audio.src = musik;
+      } 
+
+      function mulai() { 
+        audio.play(); 
+        document.querySelector(".open").style = "opacity: 0;"; 
+        document.querySelector(".body").style = "overflow-y: scroll;"; 
+
+        setTimeout(function () { 
+          document.querySelector(".open").style.display = "none"; 
+        }, 1000); 
+      } 
+      
+      function wa(isi) { 
+        window.open("https://api.whatsapp.com/send?text= Makasih ya udah inget ulang tahun aku, di hari spesial ini aku pengin " + isi); 
+      } 
+      async function tanya() { 
+        var { value: kado } = await swal.fire({ title: "Di hari spesial ini kamu pengin nya apa?", input: "text", showCancelButton: false, }); 
+        if (kado) { 
+          await swal.fire("Kirim jawabannya ke wa aku ya"); 
+          wa(kado); 
+        } else { 
+          await swal.fire("Jangan dikosongin dong"); 
+        tanya(); 
+      } 
+    } 
+
+    </script> 
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-fireworks@2/tsparticles.preset.fireworks.bundle.min.js"></script>
+    <script src="../asset/app.js"></script>
+ 
+  </body>
+</html>
